@@ -1,0 +1,11 @@
+{
+  "name" : "youtrack-workflow-problem-default-description-ru",
+  "title" : "Problem Default Description",
+  "description" : null,
+  "dependencies" : {
+    "@jetbrains/youtrack-scripting-api" : "^2021.1.9819"
+  },
+  "youtrack" : {
+    "autoAttached" : false
+  }
+}
