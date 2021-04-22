@@ -3,10 +3,10 @@ var workflow = require('@jetbrains/youtrack-scripting-api/workflow');
 
 exports.rule = entities.Issue.onChange({
   title: workflow.i18n('Start timer when the value for "Timer" becomes "Start"'),
-  guard: function(ctx) {
+  guard: (ctx) => {
     return ctx.issue.fields.becomes(ctx.Timer, ctx.Timer.Start);
   },
-  action: function(ctx) {
+  action: (ctx) => {
     ctx.issue.fields.TimerTime = Date.now();
     workflow.message(workflow.i18n('The timer is started.'));
   },
