@@ -4,10 +4,12 @@ var workflow = require('@jetbrains/youtrack-scripting-api/workflow');
 exports.rule = entities.Issue.onChange({
   title: workflow.i18n('Start timer when the value for "Timer" becomes "Start"'),
   guard: (ctx) => {
-    return ctx.issue.fields.becomes(ctx.Timer, ctx.Timer.Start);
+    const issue = ctx.issue;
+    return issue.fields.becomes(ctx.Timer, ctx.Timer.Start) && !issue.fields.TimerAssignee;
   },
   action: (ctx) => {
     ctx.issue.fields.TimerTime = Date.now();
+    ctx.issue.fields.TimerAssignee = ctx.currentUser;
     workflow.message(workflow.i18n('The timer is started.'));
   },
   requirements: {
@@ -21,6 +23,10 @@ exports.rule = entities.Issue.onChange({
     TimerTime: {
       type: entities.Field.dateTimeType,
       name: 'Время таймера'
+    },
+    TimerAssignee: {
+      type: entities.User.fieldType,
+      name: 'Таймер запущен'
     }
   }
 });
