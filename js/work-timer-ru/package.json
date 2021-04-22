@@ -1,0 +1,11 @@
+{
+  "name" : "@parusnik/youtrack-workflow-extended-standalone-work-timer-ru",
+  "title" : "Extended Stopwatch-style Work Timer",
+  "description" : null,
+  "dependencies" : {
+    "@jetbrains/youtrack-scripting-api" : "^2021.1.9819"
+  },
+  "youtrack" : {
+    "autoAttached" : false
+  }
+}
