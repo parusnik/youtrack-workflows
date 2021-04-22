@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Parusnik.
+ * Licensed under the MIT License.
+ */
+
 var entities = require('@jetbrains/youtrack-scripting-api/entities');
 var workflow = require('@jetbrains/youtrack-scripting-api/workflow');
 
