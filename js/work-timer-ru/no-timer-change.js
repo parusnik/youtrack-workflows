@@ -13,7 +13,7 @@ exports.rule = entities.Issue.onChange({
   },
   action: (ctx) => {
     const timerAssignee = ctx.issue.fields.TimerAssignee;
-    workflow.check(timerAssignee && timerAssignee.login === ctx.currentUser.login,
+    workflow.check(!timerAssignee || timerAssignee.login === ctx.currentUser.login,
         'Только пользователь запустивший таймер может остановить его!');
   },
   requirements: {

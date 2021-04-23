@@ -14,7 +14,7 @@
    },
    action: (ctx) => {
      const issue = ctx.issue;
-     workflow.check(issue.fields.becomes(ctx.Timer, ctx.Timer.Stop) && !ctx.TimerAssignee || ctx.TimerAssignee.login !== ctx.currentUser.login, workflow.i18n('Таймер запущен заблокировано для изменений'));
+     workflow.check(issue.fields.becomes(ctx.Timer, ctx.Timer.Stop) || issue.fields.becomes(ctx.Timer, ctx.Timer.Start) && ctx.TimerAssignee.login !== ctx.currentUser.login, workflow.i18n('Таймер запущен заблокировано для изменений'));
    },
    requirements: {
      Timer: {
