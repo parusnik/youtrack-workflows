@@ -10,7 +10,7 @@ exports.rule = entities.Issue.onChange({
   title: workflow.i18n('Stop timer when the value for "Timer" becomes "Stop"'),
   guard: (ctx) => {
     const issue = ctx.issue;
-    return issue.fields.becomes(ctx.Timer, ctx.Timer.Stop) && issue.fields.TimerTime && issue.fields.TimerAssignee === ctx.currentUser
+    return issue.fields.becomes(ctx.Timer, ctx.Timer.Stop) && issue.fields.TimerTime
   },
   action: (ctx) => {
     var issue = ctx.issue;
