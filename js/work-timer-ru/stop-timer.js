@@ -23,6 +23,7 @@ exports.rule = entities.Issue.onChange({
       };
       issue.addWorkItem(newWorkItem);
       issue.fields.TimerAssignee = null;
+      issue.fields.TimerTime = null;
       workflow.message(workflow.i18n('Work time added'));
     } else {
       workflow.message(workflow.i18n('Looks like the timer hasn\'t been started.'));

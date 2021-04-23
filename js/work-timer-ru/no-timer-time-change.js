@@ -14,7 +14,8 @@ exports.rule = entities.Issue.onChange({
   },
   action: (ctx) => {
     const issue = ctx.issue;
-    workflow.check(issue.fields.becomes(ctx.Timer, ctx.Timer.Start), workflow.i18n('"Время таймера" заблокировано для изменений'));
+    workflow.check(issue.fields.becomes(ctx.Timer, ctx.Timer.Start) || issue.fields.becomes(ctx.Timer, ctx.Timer.Stop) && ctx.TimerTime, 
+        workflow.i18n('"Время таймера" заблокировано для изменений'));
   },
   requirements: {
     Timer: {
