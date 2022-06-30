@@ -1,0 +1,12 @@
+{
+  "name" : "@parusnik/youtrack-workflow-subtasks-ru",
+  "title" : "Subtasks on status Done",
+  "description" : null,
+  "dependencies" : {
+    "@jetbrains/youtrack-scripting-api" : "^2021.1.9819"
+  },
+  "youtrack" : {
+    "autoAttached" : true,
+    "visual" : false
+  }
+}
